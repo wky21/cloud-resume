@@ -1,0 +1,39 @@
+name: Backend Deploy
+
+on:
+  push:
+    paths:
+      - 'backend/**'
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Checkout repo
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      # 2. Configure AWS credentials
+      - name: Configure AWS
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      # 3. Zip Lambda function
+      - name: Package Lambda
+        run: |
+          cd backend
+          zip -r lambda.zip visitor_counter.py
+
+      # 4. Deploy Lambda
+      - name: Update Lambda function
+        run: |
+          aws lambda update-function-code \
+            --function-name ${{ secrets.LAMBDA_FUNCTION_NAME }} \
+            --zip-file fileb://backend/lambda.zip
+      # 5. Clean up
+      - name: Remove Lambda zip
+        run: rm -f backend/lambda.zip
