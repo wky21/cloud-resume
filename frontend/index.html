@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Wilson Wong — Resume</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f7fa;
+      color: #222;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      background: #fff;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+    header {
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+    header .contact {
+      font-size: 14px;
+      color: #555;
+    }
+    h2 {
+      font-size: 18px;
+      color: #0b74de;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 4px;
+      margin-top: 30px;
+    }
+    ul {
+      margin: 8px 0 16px 20px;
+    }
+    .job {
+      margin-bottom: 18px;
+    }
+    .job h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+    .job .meta {
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 6px;
+    }
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 10px 0;
+    }
+    .chip {
+      background: #e0e7ff;
+      color: #1e3a8a;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Wilson Wong</h1>
+      <div class="contact">
+        Los Angeles, CA · (646) 255-7862 · <a href="mailto:wilsonwong.wky@gmail.com">wilsonwong.wky@gmail.com</a>
+      </div>
+    </header>
+
+    <section>
+      <h2>Skills</h2>
+      <div class="skills-list">
+        <span class="chip">AWS</span>
+        <span class="chip">Git</span>
+        <span class="chip">Jenkins</span>
+        <span class="chip">Spinnaker</span>
+        <span class="chip">Docker</span>
+        <span class="chip">Kubernetes</span>
+        <span class="chip">Helm</span>
+        <span class="chip">Terraform</span>
+        <span class="chip">Ansible</span>
+        <span class="chip">CloudFormation</span>
+        <span class="chip">ELK Stack</span>
+        <span class="chip">HashiCorp Vault</span>
+        <span class="chip">Dynatrace</span>
+        <span class="chip">Bash</span>
+        <span class="chip">Batch</span>
+        <span class="chip">Python</span>
+        <span class="chip">Java</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Work Experience</h2>
+
+      <div class="job">
+        <h3>Sr. DevOps Engineer — Freddie Mac</h3>
+        <div class="meta">Los Angeles, CA · Apr 2023 – Present</div>
+        <ul>
+          <li>Migrated a legacy accounting system to AWS EKS with CI/CD pipelines, decreasing deployment lead time and lowering costs.</li>
+          <li>Developed Helm charts to deploy containerized services, enabling autoscaling and reducing downtime.</li>
+          <li>Implemented HashiCorp Vault to centralize secrets management and reduce credential exposure risk.</li>
+          <li>Designed hybrid cloud solutions connecting AWS services with on-prem storage using PV/PVC configurations.</li>
+          <li>Provided on-call support and resolved pipeline failures in collaboration with cross-functional teams.</li>
+          <li>Served as SME for the DevOps toolchain, standardizing integrations across applications.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3>Jr. DevOps Engineer — Freddie Mac</h3>
+        <div class="meta">Oct 2018 – Apr 2023</div>
+        <ul>
+          <li>Automated health checks with batch scripts and Autosys, improving incident response times.</li>
+          <li>Integrated Ansible into Jenkins jobs for deployments and backups across 80+ Windows servers.</li>
+          <li>Leveraged ELK Stack to monitor utilization and detect inefficiencies, cutting infrastructure costs.</li>
+          <li>Presented weekly security findings to senior management, ensuring timely remediation.</li>
+          <li>Coordinated production releases, minimizing downtime during deployments.</li>
+          <li>Maintained Git branch workflows with Bitbucket and Jira.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3>Software Engineer I (Enterprise Data) — Fannie Mae</h3>
+        <div class="meta">Reston, VA · Aug 2017 – Aug 2018</div>
+        <ul>
+          <li>Developed enterprise data integration solutions using Tibco BW, Informatica, and SQL.</li>
+          <li>Prevented defects through XML validation and parsing to ensure data integrity.</li>
+          <li>Automated end-to-end testing with Bash, reducing testing time from hours to minutes.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3>Technical Analyst — Fannie Mae</h3>
+        <div class="meta">Aug 2015 – Aug 2017</div>
+        <ul>
+          <li>Built CI/CD pipelines using Jenkins, Maven, and shell scripts for collateral management applications.</li>
+          <li>Developed VBA-based parsing solutions to automate SQL regression testing and detect data discrepancies.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education & Certifications</h2>
+      <p><strong>Virginia Polytechnic Institute & State University</strong> — Bachelor of Science, Business Information Technology</p>
+      <p><strong>AWS Certified Solutions Architect – Associate</strong> (Valid through 2025)</p>
+    </section>
+
+    <!-- Visitor Counter -->
+    <section>
+      <h2>Visitor Counter</h2>
+      <p>Visitor Count: <span id="count">0</span></p>
+    </section>
+  </div>
+
+  <!-- JavaScript for Visitor Counter -->
+  <script>
+    async function updateCount() {
+      try {
+        const response = await fetch("https://9h0svgdtj3.execute-api.us-east-1.amazonaws.com/");
+        const data = await response.json();
+        document.getElementById("count").innerText = data.visitor_count;
+      } catch (err) {
+        console.error("Error fetching visitor count:", err);
+      }
+    }
+    updateCount();
+  </script>
+</body>
+</html>
