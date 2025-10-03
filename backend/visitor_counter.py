@@ -10,7 +10,7 @@ def lambda_handler(event, context):
     # Use a fixed ID for the single visitor counter
     counter_id = "visitors"
 
-    # Increment the counter atomically
+    # Increment the counter
     response = table.update_item(
         Key={"id": counter_id},
         UpdateExpression="ADD visitor_count :inc",
