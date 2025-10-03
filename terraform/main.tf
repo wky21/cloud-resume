@@ -127,7 +127,7 @@ resource "aws_iam_role" "lambda_role" {
     }]
   })
 }
-
+# ---------------- IAM Policy for Lambda ----------------
 resource "aws_iam_role_policy" "lambda_policy" {
   name = "resume-lambda-policy"
   role = aws_iam_role.lambda_role.id
